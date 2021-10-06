@@ -22,6 +22,11 @@ export default function Introduction () {
                     <br /> 
                     <span>Eu sou um desenvolvedor Full-Stack</span>
                 </p>
+
+                <div className={styles.button}>
+                    <span className={styles.text}>Veja meu trabalho</span>
+                    <span className={styles.icon}>&#x279C;</span>
+                </div>
             </div>
         </div>
     )
