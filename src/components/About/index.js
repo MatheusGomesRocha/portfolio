@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 
 import styles from './about.module.scss';
+import './animation.css';
 
 export default function About () {
 
     const [showTitle, setShowTitle] = useState(false);
     const [showLine, setShowLine] = useState(false);
-    const [showGoal, setShowGoal] = useState(false);
+    const [showContent, setShowContent] = useState(false);
 
     useEffect(() => {
         window.onscroll = () => {
@@ -15,8 +16,8 @@ export default function About () {
                 setShowTitle(true);
             } if (window.pageYOffset >= 300) {
                 setShowLine(true);
-            } if (window.pageYOffset >= 380) {
-                setShowGoal(true);
+            } if (window.pageYOffset >= 600) {
+                setShowContent(true);
             }
 
         }
@@ -24,12 +25,12 @@ export default function About () {
 
     return(
         <div id="about" className={styles.container}>
-            <div className={styles.header}>
+            <section className={styles.header}>
                 <h1 className={showTitle ? styles.show : undefined}>About</h1>
                 <div className={showLine ? styles.line : undefined}></div>
-            </div>
+            </section>
 
-            <div className={styles.goalArea}>
+            {/* <div className={styles.goalArea}>
                 <div className={showGoal ? styles.goalItem : styles.goalHiddenItem}>
                     <div className={styles.goalPolygon}></div>
 
@@ -47,7 +48,20 @@ export default function About () {
 
                     <h2>Banco de Dados</h2>
                 </div>
-            </div>
+            </div> */}
+
+            <section className={styles.content}>
+                <div id={showContent ? 'showContent' : 'hideContent'} className={styles.left}>
+                    <div className={styles.image} />
+
+                    <h2>Quem é esse cara?</h2>
+
+                    <p>
+                        Eu sou um Desenvolvedor Full-Stack. Comecei nessa área à quase 3 anos e desde então venho focando em me aperfeiçoar como um Desenvolvedor. Usar a lógica para resolver problemas do Backend e Banco de Dados é minha paixão. 
+                        Adoro recriar designs para melhorar meu código no Frontend.
+                    </p>
+                </div>
+            </section>
         </div>
     )
 }

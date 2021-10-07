@@ -74,6 +74,44 @@
             }
         }
     }
+
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+
+        .left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+            width: 40%;
+
+            .image {
+                background: url('../../assets/images/profile.jpeg');
+                background-position: left;
+                background-size: contain;
+                background-repeat: no-repeat;
+                clip-path: polygon(25% 15%, 73% 15%, 92% 50%, 75% 89%, 25% 89%, 6% 50%);
+                width: 25rem;
+                height: 25rem;
+            }
+
+            h2 {
+                margin-top: -2rem;
+            }
+
+            p {
+                text-align: center;
+                color: var(--gray-500);
+                line-height: 1.7rem;
+                margin-top: 1rem;
+                width: 70%;
+            }
+        }
+    }
 }
 
 @keyframes appearFromLeft {

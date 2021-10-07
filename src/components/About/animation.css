@@ -1,0 +1,16 @@
+#showContent {
+    animation: appearFromLeft 800ms forwards;
+    opacity: 0;
+    transform: translateX(-35%);
+}
+
+#hideContent {
+    opacity: 0;
+}
+
+@keyframes appearFromLeft {
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
