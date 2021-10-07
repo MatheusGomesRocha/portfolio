@@ -3,8 +3,22 @@ import React, { useState, useEffect } from "react";
 import styles from './about.module.scss';
 import './animation.css';
 
-export default function About () {
+let languagesArray = [
+    {id: 1, name: 'CSS / SASS', value: 90},
+    {id: 2, name: 'HTML', value: 90},
+    {id: 3, name: 'Javascript', value: 85},
+    {id: 4, name: 'React', value: 93},
+    {id: 5, name: 'Next', value: 70},
+    {id: 6, name: 'React-Native', value: 95},
+    {id: 7, name: 'Typescript', value: 83},
+    {id: 8, name: 'PHP', value: 75},
+    {id: 9, name: 'Laravel', value: 82},
+    {id: 10, name: 'Node', value: 85},
+    {id: 11, name: 'MySQL', value: 93},
+    {id: 12, name: 'Firebase', value: 78},
+];
 
+export default function About () {
     const [showTitle, setShowTitle] = useState(false);
     const [showLine, setShowLine] = useState(false);
     const [showContent, setShowContent] = useState(false);
@@ -51,7 +65,7 @@ export default function About () {
             </div> */}
 
             <section className={styles.content}>
-                <div id={showContent ? 'showContent' : 'hideContent'} className={styles.left}>
+                <div id={showContent ? 'showContentLeft' : 'hideContentLeft'} className={styles.left}>
                     <div className={styles.image} />
 
                     <h2>Quem é esse cara?</h2>
@@ -60,6 +74,19 @@ export default function About () {
                         Eu sou um Desenvolvedor Full-Stack. Comecei nessa área à quase 3 anos e desde então venho focando em me aperfeiçoar como um Desenvolvedor. Usar a lógica para resolver problemas do Backend e Banco de Dados é minha paixão. 
                         Adoro recriar designs para melhorar meu código no Frontend.
                     </p>
+                </div>
+
+                <div id={showContent ? 'showContentRight' : 'hideContentRight'} className={styles.right}>
+                    {languagesArray.map((item, k) => (
+                        <div key={k} className={styles.progressBar}>
+                            <div style={{width: `${item.value}%`}} className={styles.progressActive}></div>
+                            <div className={styles.progressNameArea}>
+                                <span>{item.name}</span>
+                            </div>
+
+                            <span className={styles.progressValue}>{item.value}%</span>
+                        </div>
+                    ))}
                 </div>
             </section>
         </div>

@@ -1,14 +1,24 @@
-#showContent {
-    animation: appearFromLeft 800ms forwards;
+#showContentLeft {
+    animation: appearSideToCenter 800ms forwards;
     opacity: 0;
-    transform: translateX(-35%);
+    transform: translateX(-65%);
 }
 
-#hideContent {
+#hideContentLeft {
     opacity: 0;
 }
 
-@keyframes appearFromLeft {
+#showContentRight {
+    animation: appearSideToCenter 800ms forwards;
+    opacity: 0;
+    transform: translateX(65%);
+}
+
+#hideContentRight {
+    opacity: 0;
+}
+
+@keyframes appearSideToCenter {
     100% {
         transform: translateX(0);
         opacity: 1;

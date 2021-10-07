@@ -1,5 +1,5 @@
 .container {
-    padding: 8rem 0;
+    padding: 5rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,7 +59,7 @@
             width: 20rem;
 
             .goalPolygon {
-                background-color: var(--pink);
+                background-color: var(--purple);
                 clip-path: polygon(25% 15%, 73% 15%, 92% 50%, 75% 89%, 25% 89%, 6% 50%);
                 animation: rotate 500ms forwards;
                 transform: rotateY(75deg);
@@ -80,14 +80,14 @@
         align-items: center;
         justify-content: center;
         width: 70%;
+        margin-top: 3rem;
 
         .left {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            
-            width: 40%;
+            width: 30%;
 
             .image {
                 background: url('../../assets/images/profile.jpeg');
@@ -95,12 +95,12 @@
                 background-size: contain;
                 background-repeat: no-repeat;
                 clip-path: polygon(25% 15%, 73% 15%, 92% 50%, 75% 89%, 25% 89%, 6% 50%);
-                width: 25rem;
-                height: 25rem;
+                width: 20rem;
+                height: 20rem;
             }
 
             h2 {
-                margin-top: -2rem;
+                margin-top: -1rem;
             }
 
             p {
@@ -108,7 +108,57 @@
                 color: var(--gray-500);
                 line-height: 1.7rem;
                 margin-top: 1rem;
-                width: 70%;
+                width: 80%;
+            }
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .progressBar {
+                background-color: var(--gray-100);
+                display: flex;
+                align-items: center;
+                position: relative;
+                width: 32rem;
+                height: 2rem;
+                margin-top: 1rem;
+
+                .progressActive {
+                    background-color: var(--purple-800);
+                    position: absolute;
+                    height: 2rem;
+                }
+
+                .progressNameArea {
+                    background-color: var(--purple);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    z-index: 999;
+                    width: 10rem;
+                    height: 2rem;
+
+                    span {
+                        color: var(--white);
+                        font-weight: bold;
+                    }
+                }
+
+                .progressValue {
+                    background-color: var(--gray-100);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    right: -5rem;
+                    width: 5rem;
+                    height: 2rem;
+                }
             }
         }
     }
