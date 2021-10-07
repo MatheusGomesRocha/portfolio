@@ -32,6 +32,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
             cursor: pointer;
             transition: 250ms;
             border: 1px solid var(--white);
@@ -62,5 +63,11 @@
                 transition: 250ms;
             }
         }
+    }
+}
+
+@keyframes back {
+    100% {
+        background-position: 2000px 0;
     }
 }

@@ -23,10 +23,10 @@ export default function Introduction () {
                     <span>Eu sou um desenvolvedor Full-Stack</span>
                 </p>
 
-                <div className={styles.button}>
+                <a href="#about" className={styles.button}>
                     <span className={styles.text}>Veja meu trabalho</span>
                     <span className={styles.icon}>&#x279C;</span>
-                </div>
+                </a>
             </div>
         </div>
     )
