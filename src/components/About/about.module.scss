@@ -1,3 +1,97 @@
 .container {
-    height: 50vh;
+    padding: 8rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+            opacity: 0;
+        }
+
+        .show {
+            animation: appearFromLeft 800ms forwards;
+            transform: translateX(-350%);
+            opacity: 0;
+        }
+
+        .line {
+            background-color: var(--black);
+            animation: appearFromLeft 800ms forwards;
+            transform: translateX(-350%);
+            animation-delay: 500ms;
+            opacity: 0;
+            width: 5rem;
+            height: .2rem;
+            border-radius: 1rem;
+        }
+    }
+
+    .goalArea {
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+
+        .goalHiddenItem {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+        }
+
+        .goalPolygon {
+            width: 9rem;
+            height: 9rem;
+        }
+
+        .goalItem {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 20rem;
+
+            .goalPolygon {
+                background-color: var(--pink);
+                clip-path: polygon(25% 15%, 73% 15%, 92% 50%, 75% 89%, 25% 89%, 6% 50%);
+                animation: rotate 500ms forwards;
+                transform: rotateY(75deg);
+                opacity: 0;
+                width: 9rem;
+                height: 9rem;
+            }
+
+            h2 {
+                opacity: 0;
+                animation: show 1s forwards;
+            }
+        }
+    }
+}
+
+@keyframes appearFromLeft {
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes show {
+    100% {
+        opacity: 1;
+    }
 }
