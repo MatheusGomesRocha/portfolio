@@ -1,0 +1,28 @@
+#showTitle {
+    animation: appearSideToCenter 800ms forwards;
+    opacity: 0;
+    transform: translateX(150%);
+}
+
+#hideTitle {
+    opacity: 0;
+}
+
+#showLine {
+    animation: appearSideToCenter 800ms forwards;
+    opacity: 0;
+    animation-delay: 500ms;
+    transform: translateX(350%);
+}
+
+#hideLine {
+    opacity: 0;
+}
+
+@keyframes appearSideToCenter {
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
