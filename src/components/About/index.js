@@ -18,25 +18,7 @@ let languagesArray = [
     {id: 12, name: 'Firebase', value: 78},
 ];
 
-export default function About () {
-    const [showTitle, setShowTitle] = useState(false);
-    const [showLine, setShowLine] = useState(false);
-    const [showContent, setShowContent] = useState(false);
-
-    useEffect(() => {
-        window.onscroll = () => {
-            console.log(window.pageYOffset);
-            if(window.pageYOffset >= 220) {
-                setShowTitle(true);
-            } if (window.pageYOffset >= 300) {
-                setShowLine(true);
-            } if (window.pageYOffset >= 600) {
-                setShowContent(true);
-            }
-
-        }
-    }, []);
-
+export default function About ({showTitle, showLine, showContent}) {
     return(
         <div id="about" className={styles.container}>
             <section className={styles.header}>
