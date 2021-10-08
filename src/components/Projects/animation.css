@@ -19,6 +19,15 @@
     opacity: 0;
 }
 
+#showFilter {
+    animation: show 800ms forwards;
+    opacity: 0;
+}
+
+#hideFilter {
+    opacity: 0;
+}
+
 @keyframes appearSideToCenter {
     100% {
         transform: translateX(0);
@@ -26,3 +35,8 @@
     }
 }
 
+@keyframes show {
+    100% {
+        opacity: 1;
+    }
+}

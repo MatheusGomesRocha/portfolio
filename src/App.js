@@ -13,6 +13,7 @@ function App() {
 
     const [showTitleProject, setShowTitleProject] = useState(false);
     const [showLineProject, setShowLineProject] = useState(false);
+    const [showFilterArea, setShowFilterArea] = useState(false);
 
     useEffect(() => {
         window.onscroll = () => {
@@ -25,8 +26,10 @@ function App() {
                 setShowContent(true);
             } if (window.pageYOffset >= 1100) {
               setShowTitleProject(true)
-            } if (window.pageYOffset >= 1200) {
+            } if (window.pageYOffset >= 1180) {
               setShowLineProject(true);
+            } if(window.pageYOffset >= 1250) {
+              setShowFilterArea(true);
             }
 
         }
@@ -38,7 +41,7 @@ function App() {
 
       <About showTitle={showTitle} showLine={showLine} showContent={showContent} />
 
-      <Projects showTitle={showTitleProject} showLine={showLineProject} />
+      <Projects showTitle={showTitleProject} showLine={showLineProject} showFilter={showFilterArea} />
     </div>
   );
 }

@@ -1,9 +1,10 @@
 .container {
-    padding: 5rem 0;
+    background-color: var(--gray-50);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 5rem 0;
 
     .header {
         display: flex;
@@ -21,5 +22,152 @@
             height: .2rem;
             border-radius: 1rem;
         }
+    }
+
+    .projects {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+        width: 100%;
+
+        .filterArea {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            grid-template-columns: repeat(4, 1fr);
+
+            .background {
+                background-color: var(--purple);
+                position: absolute;
+                width: 10rem;
+                height: 3rem;
+                transition: 500ms;
+                color: var(--white);
+            }
+
+            .filterItem {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 999;
+                width: 10rem;
+                height: 3rem;
+                transition: 500ms;
+
+                &:hover {
+                    cursor: pointer;
+                }
+                
+                span {
+                    font-size: 1.2rem;
+                    transition: 500ms;
+                }
+            }
+        }
+
+        .projectsArea {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 2rem;
+
+            .projectsItem {
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                width: 22rem;
+                height: 17rem;
+
+                &:hover {
+                    .projectsItemHidden {
+                        opacity: 1;
+                        transition: opacity 500ms;
+
+                        .projectsItemHeader {
+                            opacity: 1;
+                            transform: translateY(0);
+                            transition: transform 500ms, opacity 500ms;
+                        }
+
+                        .projectsItemButton {
+                            opacity: 1;
+                            transform: translateY(0);
+                            transition: transform 500ms, opacity 500ms, background-color 500ms;
+                        }
+                    }
+                }
+
+                .projectsItemHidden {
+                    background-color: var(--white);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-around;
+                    overflow: hidden;
+                    opacity: 0;
+                    transition: opacity 500ms;
+                    width: 22rem;
+                    height: 17rem;
+
+                    .projectsItemHeader {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        opacity: 0;
+                        transform: translateY(-250%);
+                        transition: transform 500ms, opacity 500ms;
+
+                        h2 {
+                            font-size: 2rem;
+                        }
+
+                        span {
+                            color: var(--purple);
+                            font-size: 1.3rem;
+                            line-height: 1rem;
+                        }
+                    }
+
+                    .projectsItemButton {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        border: 1px solid var(--purple);
+                        width: 9rem;
+                        height: 2.5rem;
+                        margin-top: 2rem;
+                        opacity: 0;
+                        transform: translateY(250%);
+                        transition: transform 500ms, opacity 500ms, background-color 500ms;
+
+                        &:hover {
+                            background-color: var(--purple);
+
+                            span {
+                                color: var(--white);
+                                transition: 500ms;
+                            }
+                        }
+
+                        span {
+                            transition: 250ms;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes showHiddenHeader {
+    0% {
+        transform: translateY(-150%);
+    }
+    100% {
+        transform: translateY(0);
     }
 }
