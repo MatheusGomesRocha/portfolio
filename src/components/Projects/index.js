@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Img from '../../assets/images/profile.jpeg';
+import Img from '../../assets/pizzaria-portfolio/1.png';
 
 import styles from './projects.module.scss';
 import './animation.css';
@@ -12,9 +12,49 @@ let projectsArray = [
 
 export default function Projects ({ showTitle, showLine, showFilter }) {
     const [filter, setFilter] = useState('all');
+    const [modalVisible, setModalVisible] = useState(false);
+    const [img, setImg] = useState();
+
+    const Modal = () => {
+        return(
+            <div className={styles.modalContainer}>
+                <div onClick={() => setModalVisible(false)} className={styles.modal}>
+                    <img src={img} />
+                </div>
+            </div>
+        )
+    }
+
+    const RenderItem = ({ item, k }) => {
+        return(
+            <div style={{backgroundImage: `url(${item.img})`}} key={k} className={styles.projectsItem}>
+                <div className={styles.projectsItemHidden}>
+                    <div className={styles.projectsItemHeader}>
+                        <h2>{item.name}</h2>
+                        <span>{item.languages}</span>
+                    </div>
+
+                    <div onClick={() => openModal(item.img)} className={styles.projectsItemButton}>
+                        <span>Saiba Mais</span>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    function openModal (img) {
+        setImg(img);
+        setModalVisible(true);
+    }
 
     return(
         <div className={styles.container}>
+            {modalVisible ?
+                <Modal />
+                :
+                undefined
+            }
+
             <section className={styles.header}>
                 <h1 id={showTitle ? 'showTitle' : 'hideTitle'} className={styles.title}>Projects</h1>
                 <div id={showLine ? 'showLine' : 'hideLine'} className={styles.line}></div>
@@ -44,46 +84,13 @@ export default function Projects ({ showTitle, showLine, showFilter }) {
                 <div className={styles.projectsArea}>
                     {projectsArray.map((item, k) => (
                         filter === 'all' ?
-                        <div style={{backgroundImage: `url(${item.img})`}} key={k} className={styles.projectsItem}>
-                            <div className={styles.projectsItemHidden}>
-                                <div className={styles.projectsItemHeader}>
-                                    <h2>{item.name}</h2>
-                                    <span>{item.languages}</span>
-                                </div>
-
-                                <div className={styles.projectsItemButton}>
-                                    <span>Saiba Mais</span>
-                                </div>
-                            </div>
-                        </div>
+                            <RenderItem item={item} k={k} />
                         :
                         filter === item.languageFilter ?
-                        <div style={{backgroundImage: `url(${item.img})`}} key={k} className={styles.projectsItem}>
-                            <div className={styles.projectsItemHidden}>
-                                <div className={styles.projectsItemHeader}>
-                                    <h2>{item.name}</h2>
-                                    <span>{item.languages}</span>
-                                </div>
-
-                                <div className={styles.projectsItemButton}>
-                                    <span>Saiba Mais</span>
-                                </div>
-                            </div>
-                        </div>
+                            <RenderItem item={item} k={k} />
                         :
                         filter === item.languageFilter2 &&
-                        <div style={{backgroundImage: `url(${item.img})`}} key={k} className={styles.projectsItem}>
-                            <div className={styles.projectsItemHidden}>
-                                <div className={styles.projectsItemHeader}>
-                                    <h2>{item.name}</h2>
-                                    <span>{item.languages}</span>
-                                </div>
-
-                                <div className={styles.projectsItemButton}>
-                                    <span>Saiba Mais</span>
-                                </div>
-                            </div>
-                        </div>
+                            <RenderItem item={item} k={k} />
                     ))}
                 </div>
             </section>

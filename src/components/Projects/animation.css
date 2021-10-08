@@ -28,6 +28,18 @@
     opacity: 0;
 }
 
+#modalVisible {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    animation: showModal 500ms forwards;
+}
+
+#modalHide {
+    animation: hideModal 500ms forwards;
+
+}
+
 @keyframes appearSideToCenter {
     100% {
         transform: translateX(0);
@@ -38,5 +50,26 @@
 @keyframes show {
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes showModal {
+    100% {
+        opacity: 1;
+        width: 40rem;
+        height: 70vh;
+    }
+}
+
+@keyframes hideModal {
+    0% {
+        opacity: 1;
+        width: 40rem;
+        height: 70vh;
+    }
+    100% {
+        opacity: 0;
+        width: 0;
+        height: 0;
     }
 }
