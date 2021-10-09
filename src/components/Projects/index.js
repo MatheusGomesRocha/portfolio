@@ -22,6 +22,7 @@ import ImgRecipe8 from '../../assets/recipe-portfolio/8.jpeg';
 
 import styles from './projects.module.scss';
 import './animation.css';
+import HeaderAnimated from '../HeaderAnimated';
 
 let projectsArray = [
     {
@@ -175,10 +176,7 @@ export default function Projects ({ showTitle, showLine, showProjects }) {
                 undefined
             }
 
-            <section className={styles.header}>
-                <h1 id={showTitle ? 'showTitle' : 'hideTitle'} className={styles.title}>Projects</h1>
-                <div id={showLine ? 'showLine' : 'hideLine'} className={styles.line}></div>
-            </section>
+            <HeaderAnimated title="Projects" direction='right' showTitle={showTitle} showLine={showLine} />
 
             <section className={styles.projects}>
                 <div id={showProjects ? 'showFilter' : 'hideFilter'} className={styles.filterArea}>

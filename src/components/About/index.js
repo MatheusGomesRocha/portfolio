@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
+import HeaderAnimated from "../HeaderAnimated";
 import styles from './about.module.scss';
 import './animation.css';
 
@@ -21,10 +22,7 @@ let languagesArray = [
 export default function About ({showTitle, showLine, showContent}) {
     return(
         <div id="about" className={styles.container}>
-            <section className={styles.header}>
-                <h1 className={showTitle ? styles.show : undefined}>About</h1>
-                <div className={showLine ? styles.line : undefined}></div>
-            </section>
+            <HeaderAnimated title="About" direction='left' showTitle={showTitle} showLine={showLine} />
 
             {/* <div className={styles.goalArea}>
                 <div className={showGoal ? styles.goalItem : styles.goalHiddenItem}>

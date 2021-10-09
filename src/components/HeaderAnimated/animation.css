@@ -1,0 +1,24 @@
+#showTitle {
+    animation: appearSideToCenter 800ms forwards;
+    opacity: 0;
+}
+
+#hideTitle {
+    opacity: 0;
+}
+
+#showLine {
+    animation: appearSideToCenter 1.3s forwards;
+    opacity: 0;
+}
+
+#hideLine {
+    opacity: 0;
+}
+
+@keyframes appearSideToCenter {
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

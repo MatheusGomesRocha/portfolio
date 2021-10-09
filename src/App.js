@@ -26,7 +26,7 @@ function App() {
                 setShowContent(true);
             } if (window.pageYOffset >= 1100) {
               setShowTitleProject(true)
-            } if (window.pageYOffset >= 1350) {
+            } if (window.pageYOffset >= 1300) {
               setShowLineProject(true);
             } if(window.pageYOffset >= 1600) {
               setShowProjectsArea(true);
