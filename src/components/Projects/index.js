@@ -3,6 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 
 import { BiLinkExternal } from 'react-icons/bi';
+import { AiFillGithub } from 'react-icons/ai';
 
 import ImgPizzaria1 from '../../assets/pizzaria-portfolio/1.png';
 import ImgPizzaria2 from '../../assets/pizzaria-portfolio/2.png';
@@ -14,8 +15,28 @@ import styles from './projects.module.scss';
 import './animation.css';
 
 let projectsArray = [
-    {id: 1, img: ImgPizzaria1, name: 'Pizza Home', description: 'Um lindo website de apresentação para uma Pizzaria', whatCanDo: 'Pizza Home é um website simples, com uma API feita em Node para testar como seria a visão do usuário ao fazer os pedidos', languages: 'React / Node', languageFilter: 'react', languageFilter2: 'node', node: true},
-    {id: 2, img: ImgPizzaria1, name: 'Recipe', languages: 'React-Native / Node', languageFilter: 'react-native', languageFilter2: 'node', node: true},
+    {
+        id: 1, 
+        img: ImgPizzaria1, 
+        name: 'Pizza Home', 
+        description: 'Um lindo website de apresentação para uma Pizzaria', 
+        whatCanDo: 'Pizza Home é um website simples, com uma API feita em Node para testar como seria a visão do usuário ao fazer os pedidos', 
+        linkSite: 'https://pizza-home.herokuapp.com',
+        linkGithub: 'https://github.com/MatheusGomesRocha/pizzaria_react',
+        languages: 'React / Node', 
+        languageFilter: 'react', 
+        languageFilter2: 'node', 
+        node: true
+    },
+    {
+        id: 2, 
+        img: ImgPizzaria1, 
+        name: 'Recipe', 
+        languages: 'React-Native / Node', 
+        languageFilter: 'react-native', 
+        languageFilter2: 'node', 
+        node: true
+    },
 ];
 
 export default function Projects ({ showTitle, showLine, showFilter }) {
@@ -26,8 +47,8 @@ export default function Projects ({ showTitle, showLine, showFilter }) {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [whatCanDo, setWhatCanDo] = useState('');
-
-    const [hover, setHover] = useState(false);
+    const [site, setSite] = useState('');
+    const [github, setGithub] = useState('');
 
     const arrowPrev = (clickHandler) => {
         return(
@@ -76,15 +97,24 @@ export default function Projects ({ showTitle, showLine, showFilter }) {
                         <span>{description}</span>
                     </div>
 
-                    <p>{whatCanDo}</p>
+                    <div className={styles.footerModal}>
+                        <p>{whatCanDo}</p>
 
-                    <div className={styles.buttonModal}>
-                        <BiLinkExternal className={styles.icon} size={18} />
-                        <span>Ver site</span>
-                    </div>
+                        <div className={styles.footerRow}>
+                            <a href={site} target="_blank" className={styles.buttonModal}>
+                                <BiLinkExternal className={styles.icon} size={18} />
+                                <span>Ver site</span>
+                            </a>
+                            
+                            <a href={github} target="_blank" className={styles.buttonModalGithub}>
+                                <AiFillGithub className={styles.icon} size={18} />
+                                <span>Ver github</span>
+                            </a>
+                        </div>
 
-                    <div onClick={() => setModalVisible(false)} className={styles.closeButtonModal}>
-                        <span>&#x2717;</span>
+                        <div onClick={() => setModalVisible(false)} className={styles.closeButtonModal}>
+                            <span>&#x2717;</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -100,7 +130,7 @@ export default function Projects ({ showTitle, showLine, showFilter }) {
                         <span>{item.languages}</span>
                     </div>
 
-                    <div onClick={() => openModal(item.img, item.name, item.description, item.whatCanDo)} className={styles.projectsItemButton}>
+                    <div onClick={() => openModal(item.img, item.name, item.description, item.whatCanDo, item.linkSite, item.linkGithub)} className={styles.projectsItemButton}>
                         <span>Saiba Mais</span>
                     </div>
                 </div>
@@ -108,11 +138,13 @@ export default function Projects ({ showTitle, showLine, showFilter }) {
         )
     }
 
-    function openModal (img, name, description, whatCanDo) {
+    function openModal (img, name, description, whatCanDo, linkSite, linkGithub) {
         setImg(img);
         setName(name);
         setDescription(description);
         setWhatCanDo(whatCanDo);
+        setSite(linkSite);
+        setGithub(linkGithub);
         setModalVisible(true);
     }
 
@@ -134,19 +166,19 @@ export default function Projects ({ showTitle, showLine, showFilter }) {
                     <div style={{left: filter === 'all' && '0rem' || filter === 'react' && '10rem' || filter === 'react-native' && '20rem' || filter === 'node' && '30rem'}} className={styles.background} />
 
                     <div onClick={() => setFilter('all')} className={styles.filterItem}>
-                        <span style={{color: filter === 'all' ? '#fff' : '#000'}}>All</span>
+                        <span style={{color: filter === 'all' ? '#000' : '#fff'}}>All</span>
                     </div>
 
                     <div onClick={() => setFilter('react')} className={styles.filterItem}>
-                        <span style={{color: filter === 'react' ? '#fff' : '#000'}}>React</span>
+                        <span style={{color: filter === 'react' ? '#000' : '#fff'}}>React</span>
                     </div>
 
                     <div onClick={() => setFilter('react-native')} className={styles.filterItem}>
-                        <span style={{color: filter === 'react-native' ? '#fff' : '#000'}}>React Native</span>
+                        <span style={{color: filter === 'react-native' ? '#000' : '#fff'}}>React Native</span>
                     </div>
 
                     <div onClick={() => setFilter('node')} className={styles.filterItem}>
-                        <span style={{color: filter === 'node' ? '#fff' : '#000'}}>Node</span>
+                        <span style={{color: filter === 'node' ? '#000' : '#fff'}}>Node</span>
                     </div>
                 </div>
 

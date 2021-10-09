@@ -1,146 +1,9 @@
 .container {
-    background-color: var(--gray-50);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 5rem 0;
-
-    .modalContainer {
-        background-color: rgba(0, 0, 0, 0.7);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        top: 0;
-        z-index: 999;
-        width: 100%;
-        height: 100vh;
-
-        .modal {
-            background-color: var(--white);
-            position: relative;
-            opacity: 0;
-            width: 0;
-            height: 0;
-            animation: show 500ms forwards;
-            transition: opacity 500ms, width 500ms height 500ms;
-
-            img {
-                position: relative;
-                object-fit: cover;
-                object-position: center;
-                width: 40rem;
-                height: 40vh;
-            }
-
-            .arrow {
-                background-color: rgba(0, 0, 0, 0.4);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                z-index: 999;
-                position: absolute;
-                bottom: 1px;
-                width: 3rem;
-                height: 3rem;
-
-                span {
-                    color: var(--white);
-                    font-size: 2rem;
-                }
-            }
-
-            .headerModal {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                border-bottom: 1px solid var(--gray-100);
-                margin: 2rem;
-                padding-bottom: 1rem;
-
-                h2 {
-                    font-size: 2rem;
-                }
-
-                span {
-                    color: var(--gray-200);
-                    font-size: 1.3rem;
-                    line-height: 1rem;
-                }
-            }
-
-            p {
-                margin: 0 2rem;
-                line-height: 1.5rem;
-                font-weight: 100;
-            }
-
-            .buttonModal {
-                background-color: var(--purple);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                border: 1px solid transparent;
-                transition: 500ms;
-                margin: 1rem 2rem;
-                width: 8rem;
-                height: 2.5rem;
-
-                &:hover {
-                    background-color: transparent;
-                    border: 1px solid var(--purple);
-
-                    .icon {
-                        color: var(--purple);
-                        transition: 250ms;
-                    }
-
-                    span {
-                        color: var(--purple);
-                        transition: 250ms;
-                    }
-                }
-
-                .icon {
-                    color: var(--white);
-                    transition: 250ms;
-                }
-
-                span {
-                    color: var(--white);
-                    transition: 250ms;
-                    font-size: 1.3rem;
-                    margin-left: .5rem;
-                }
-            }
-
-            .closeButtonModal {
-                background-color: rgba(0, 0, 0, 0.5);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                cursor: pointer;
-                transition: 250ms;
-                right: 2rem;
-                bottom: 2rem;
-                width: 2rem;
-                height: 2rem;
-                border-radius: 1rem;
-
-                &:hover {
-                    background-color: var(--black);
-                }
-                
-                span {
-                    color: var(--white);
-                }
-            }
-        }
-    }
 
     .header {
         display: flex;
@@ -148,12 +11,8 @@
         align-items: center;
         justify-content: center;
 
-        .title {
-            color: var(--black);
-        }
-
         .line {
-            background-color: var(--black);
+            background-color: var(--white);
             width: 5rem;
             height: .2rem;
             border-radius: 1rem;
@@ -181,7 +40,6 @@
                 width: 10rem;
                 height: 3rem;
                 transition: 500ms;
-                color: var(--white);
             }
 
             .filterItem {
@@ -237,7 +95,7 @@
                 }
 
                 .projectsItemHidden {
-                    background-color: var(--white);
+                    background-color: var(--black);
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -298,6 +156,204 @@
             }
         }
     }
+
+    .modalContainer {
+        background-color: rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        z-index: 999;
+        width: 100%;
+        height: 100vh;
+
+        .modal {
+            background-color: var(--black);
+            overflow: hidden;
+            position: relative;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            animation: show 500ms forwards;
+            transition: opacity 500ms, width 500ms height 500ms;
+
+            img {
+                position: relative;
+                object-fit: cover;
+                object-position: center;
+                opacity: 0;
+                animation: showImg 3s forwards;
+                width: 40rem;
+                height: 40vh;
+            }
+
+            .arrow {
+                background-color: rgba(0, 0, 0, 0.4);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 999;
+                position: absolute;
+                bottom: 0;
+                width: 3rem;
+                height: 3rem;
+
+                span {
+                    color: var(--white);
+                    font-size: 2rem;
+                }
+            }
+
+            .headerModal {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                opacity: 0;
+                transform: translateX(150%);
+                animation: showToCenter 500ms forwards;
+                animation-delay: 1s;
+                border-bottom: 1px solid var(--gray-500);
+                margin: 2rem;
+                padding-bottom: 1rem;
+
+                h2 {
+                    font-size: 2rem;
+                }
+
+                span {
+                    color: var(--gray-500);
+                    font-size: 1.3rem;
+                    line-height: 1rem;
+                }
+            }
+
+            .footerModal {
+                opacity: 0;
+                transform: translateX(-150%);
+                animation: showToCenter 500ms forwards;
+                animation-delay: 1s;
+
+                p {
+                    color: var(--gray-100);
+                    font-weight: 100;
+                    line-height: 1.5rem;
+                    margin: 0 2rem;
+                }
+    
+                .footerRow {
+                    display: flex;
+                    align-items: center;
+                    margin: 1rem 2rem;
+                    
+                    .buttonModal {
+                        background-color: var(--purple);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        text-decoration: none;
+                        border: 1px solid transparent;
+                        transition: 500ms;
+                        padding: 0 1rem;
+                        height: 2.5rem;
+        
+                        &:hover {
+                            background-color: transparent;
+                            border: 1px solid var(--purple);
+        
+                            .icon {
+                                color: var(--purple);
+                                transition: 250ms;
+                            }
+        
+                            span {
+                                color: var(--purple);
+                                transition: 250ms;
+                            }
+                        }
+        
+                        .icon {
+                            color: var(--white);
+                            transition: 250ms;
+                        }
+        
+                        span {
+                            color: var(--white);
+                            transition: 250ms;
+                            font-size: 1.3rem;
+                            margin-left: .5rem;
+                        }
+                    }
+
+                    .buttonModalGithub {
+                        background-color: var(--white);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        text-decoration: none;
+                        border: 1px solid transparent;
+                        transition: 500ms;
+                        margin-left: 1rem;
+                        padding: 0 1rem;
+                        height: 2.5rem;
+        
+                        &:hover {
+                            background-color: transparent;
+                            border: 1px solid var(--white);
+        
+                            .icon {
+                                color: var(--white);
+                                transition: 250ms;
+                            }
+        
+                            span {
+                                color: var(--white);
+                                transition: 250ms;
+                            }
+                        }
+        
+                        .icon {
+                            color: var(--black);
+                            transition: 250ms;
+                        }
+        
+                        span {
+                            color: var(--black);
+                            transition: 250ms;
+                            font-size: 1.3rem;
+                            margin-left: .5rem;
+                        }
+                    }
+                }
+    
+                .closeButtonModal {
+                    background-color: rgba(255, 255, 255, 0.7);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    cursor: pointer;
+                    transition: 250ms;
+                    right: 2rem;
+                    bottom: 0;
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 1rem;
+    
+                    &:hover {
+                        background-color: var(--white);
+                    }
+                    
+                    span {
+                        color: var(--black);
+                    }
+                }
+            }
+        }
+    }
 }
 
 @keyframes showHiddenHeader {
@@ -314,5 +370,18 @@
         opacity: 1;
         width: 40rem;
         height: 70vh;
+    }
+}
+
+@keyframes showImg {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes showToCenter {
+    100% {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
