@@ -230,25 +230,25 @@
             }
 
             .footerModal {
+                display: flex;
+                flex-direction: column;
                 opacity: 0;
                 transform: translateX(-150%);
                 animation: showToCenter 500ms forwards;
                 animation-delay: 1s;
-                display: flex;
                 flex: 1;
-                flex-direction: column;
+                margin: 0 2rem;
 
                 p {
                     color: var(--gray-800);
                     font-weight: 100;
                     line-height: 1.5rem;
-                    margin: 0 2rem;
                 }
     
                 .footerRow {
                     display: flex;
                     align-items: center;
-                    margin: auto 2rem 2rem 2rem;
+                    margin: 2rem 0;
                     
                     .buttonModal {
                         background-color: var(--purple);
@@ -363,7 +363,7 @@
     100% {
         opacity: 1;
         width: 40rem;
-        height: 70vh;
+        height: auto;
     }
 }
 
@@ -390,6 +390,43 @@
             .projectsArea {
                 grid-template-columns: 1fr;
             }
+        }
+
+        .modalContainer {
+            .modal {
+                .imgContainer {
+                    width: 100%;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .headerModal {
+                    margin: 1rem 1.5rem 0 1.5rem;
+                }
+
+                .footerModal {
+                    margin: 1rem 1.5rem 0 1.5rem;
+
+                    .footerRow {
+                        flex-direction: column;
+                        align-items: flex-start;
+
+                        .buttonModalGithub {
+                            margin-top: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @keyframes show {
+        100% {
+            opacity: 1;
+            width: 90%;
+            height: auto;
         }
     }
 }

@@ -86,7 +86,20 @@
 @media (max-width: 800px) {
     .container {
         form { 
-            display: none;
+            width: 100%;
+
+            input {
+                width: 90%;
+            }
+
+            textarea {
+                width: 90%;
+                height: 12rem;
+            }
+
+            .submitButton {
+                margin-right: 5%;
+            }
         }
     }
 }
