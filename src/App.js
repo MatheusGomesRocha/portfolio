@@ -6,6 +6,7 @@ import Introduction from './components/Introduction';
 import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
     const [showTitle, setShowTitle] = useState(false);
@@ -62,6 +63,8 @@ function App() {
       <Projects showTitleProject={showTitleProject} showLineProject={showLineProject} showProjects={showProjectsArea} />
 
       <Contact showTitleContact={showTitleContact} showLineContact={showLineContact} showFormContact={showForm} />
+
+      <Footer />
     </div>
   );
 }

@@ -22,7 +22,7 @@ let languagesArray = [
 export default function About ({showTitle, showLine, showContent}) {
     return(
         <div id="about" className={styles.container}>
-            <HeaderAnimated title="About" direction='left' showTitle={showTitle} showLine={showLine} />
+            <HeaderAnimated title="Sobre" direction='left' showTitle={showTitle} showLine={showLine} />
 
             {/* <div className={styles.goalArea}>
                 <div className={showGoal ? styles.goalItem : styles.goalHiddenItem}>

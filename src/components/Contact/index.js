@@ -7,7 +7,7 @@ import './animation.css';
 export default function Contact ({ showTitleContact, showLineContact, showFormContact }) {
     return(
         <div className={styles.container}>
-            <HeaderAnimated title="Contact" direction="left" showTitle={showTitleContact} showLine={showLineContact} />
+            <HeaderAnimated title="Contato" direction="left" showTitle={showTitleContact} showLine={showLineContact} />
 
             <span id={showLineContact ? 'showQuestion' : 'hideQuestion'}  className={styles.questionText}>Tem alguma pergunta?</span>
 

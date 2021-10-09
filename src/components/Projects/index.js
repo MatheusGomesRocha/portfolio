@@ -176,7 +176,7 @@ export default function Projects ({ showTitleProject, showLineProject, showProje
                 undefined
             }
 
-            <HeaderAnimated title="Projects" direction='right' showTitle={showTitleProject} showLine={showLineProject} />
+            <HeaderAnimated title="Projetos" direction='right' showTitle={showTitleProject} showLine={showLineProject} />
 
             <section id={showProjects ? 'showProjectsItem' : 'hideProjectsItem'} className={styles.projects}>
                 <div id={showProjects ? 'showFilter' : 'hideFilter'} className={styles.filterArea}>
