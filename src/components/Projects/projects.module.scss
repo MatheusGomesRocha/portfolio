@@ -19,6 +19,7 @@
 
         .modal {
             background-color: var(--white);
+            position: relative;
             opacity: 0;
             width: 0;
             height: 0;
@@ -26,8 +27,117 @@
             transition: opacity 500ms, width 500ms height 500ms;
 
             img {
+                position: relative;
+                object-fit: cover;
+                object-position: center;
                 width: 40rem;
-                height: 30vh;
+                height: 40vh;
+            }
+
+            .arrow {
+                background-color: rgba(0, 0, 0, 0.4);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 999;
+                position: absolute;
+                bottom: 1px;
+                width: 3rem;
+                height: 3rem;
+
+                span {
+                    color: var(--white);
+                    font-size: 2rem;
+                }
+            }
+
+            .headerModal {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                border-bottom: 1px solid var(--gray-100);
+                margin: 2rem;
+                padding-bottom: 1rem;
+
+                h2 {
+                    font-size: 2rem;
+                }
+
+                span {
+                    color: var(--gray-200);
+                    font-size: 1.3rem;
+                    line-height: 1rem;
+                }
+            }
+
+            p {
+                margin: 0 2rem;
+                line-height: 1.5rem;
+                font-weight: 100;
+            }
+
+            .buttonModal {
+                background-color: var(--purple);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                border: 1px solid transparent;
+                transition: 500ms;
+                margin: 1rem 2rem;
+                width: 8rem;
+                height: 2.5rem;
+
+                &:hover {
+                    background-color: transparent;
+                    border: 1px solid var(--purple);
+
+                    .icon {
+                        color: var(--purple);
+                        transition: 250ms;
+                    }
+
+                    span {
+                        color: var(--purple);
+                        transition: 250ms;
+                    }
+                }
+
+                .icon {
+                    color: var(--white);
+                    transition: 250ms;
+                }
+
+                span {
+                    color: var(--white);
+                    transition: 250ms;
+                    font-size: 1.3rem;
+                    margin-left: .5rem;
+                }
+            }
+
+            .closeButtonModal {
+                background-color: rgba(0, 0, 0, 0.5);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                cursor: pointer;
+                transition: 250ms;
+                right: 2rem;
+                bottom: 2rem;
+                width: 2rem;
+                height: 2rem;
+                border-radius: 1rem;
+
+                &:hover {
+                    background-color: var(--black);
+                }
+                
+                span {
+                    color: var(--white);
+                }
             }
         }
     }
