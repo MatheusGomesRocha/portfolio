@@ -7,12 +7,12 @@
     opacity: 0;
 }
 
-#showProjects {
+#showProjectsItem {
     animation: show 800ms forwards;
     opacity: 0;
 }
 
-#hideProjects {
+#hideProjectsItem {
     opacity: 0;
 }
 
@@ -26,13 +26,6 @@
 #modalHide {
     animation: hideModal 500ms forwards;
 
-}
-
-@keyframes appearSideToCenter {
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
 }
 
 @keyframes show {

@@ -70,7 +70,7 @@ let projectsArray = [
     },
 ];
 
-export default function Projects ({ showTitle, showLine, showProjects }) {
+export default function Projects ({ showTitleProject, showLineProject, showProjects }) {
     const [filter, setFilter] = useState('all');
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -141,9 +141,9 @@ export default function Projects ({ showTitle, showLine, showProjects }) {
         )
     }
 
-    const RenderItem = ({ item, k }) => {
+    const RenderItem = ({ item }) => {
         return(
-            <div style={{backgroundImage: `url(${item.imgBanner})`, animationDelay: `${item.showDelay}s`}} key={k} className={styles.projectsItem}>
+            <div style={{backgroundImage: `url(${item.imgBanner})`, animationDelay: `${item.showDelay}s`}} className={styles.projectsItem}>
                 <div className={styles.projectsItemHidden}>
                     <div className={styles.projectsItemHeader}>
                         <h2>{item.name}</h2>
@@ -176,9 +176,9 @@ export default function Projects ({ showTitle, showLine, showProjects }) {
                 undefined
             }
 
-            <HeaderAnimated title="Projects" direction='right' showTitle={showTitle} showLine={showLine} />
+            <HeaderAnimated title="Projects" direction='right' showTitle={showTitleProject} showLine={showLineProject} />
 
-            <section className={styles.projects}>
+            <section id={showProjects ? 'showProjectsItem' : 'hideProjectsItem'} className={styles.projects}>
                 <div id={showProjects ? 'showFilter' : 'hideFilter'} className={styles.filterArea}>
                     <div style={{left: filter === 'all' && '0rem' || filter === 'react' && '10rem' || filter === 'react-native' && '20rem' || filter === 'node' && '30rem'}} className={styles.background} />
 
@@ -199,7 +199,7 @@ export default function Projects ({ showTitle, showLine, showProjects }) {
                     </div>
                 </div>
 
-                <div id={showProjects ? 'showProjects' : 'hideProjects'} className={styles.projectsArea}>
+                <div className={styles.projectsArea}>
                     {projectsArray.map((item, k) => (
                         filter === 'all' ?
                             <RenderItem item={item} key={k} />

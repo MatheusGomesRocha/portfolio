@@ -20,6 +20,7 @@
             justify-content: center;
             position: relative;
             grid-template-columns: repeat(4, 1fr);
+            margin-top: 3rem;
 
             .background {
                 background-color: var(--purple);
@@ -58,11 +59,8 @@
                 background-position: center;
                 background-size: cover;
                 background-repeat: no-repeat;
-                display: flex;
-                opacity: 0;
                 width: 22rem;
                 height: 17rem;
-                animation: showImg 500ms forwards;
                 
                 &:hover {
                     .projectsItemHidden {
