@@ -28,6 +28,15 @@
     opacity: 0;
 }
 
+#showProjects {
+    animation: show 800ms forwards;
+    opacity: 0;
+}
+
+#hideProjects {
+    opacity: 0;
+}
+
 #modalVisible {
     opacity: 0;
     width: 0;

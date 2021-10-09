@@ -73,9 +73,11 @@
                 background-size: cover;
                 background-repeat: no-repeat;
                 display: flex;
+                opacity: 0;
                 width: 22rem;
                 height: 17rem;
-
+                animation: showImg 500ms forwards;
+                
                 &:hover {
                     .projectsItemHidden {
                         opacity: 1;
@@ -370,15 +372,6 @@
                 }
             }
         }
-    }
-}
-
-@keyframes showHiddenHeader {
-    0% {
-        transform: translateY(-150%);
-    }
-    100% {
-        transform: translateY(0);
     }
 }
 

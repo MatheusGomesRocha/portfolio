@@ -45,7 +45,8 @@ let projectsArray = [
         node: true
     },
     {
-        id: 2, 
+        id: 2,
+        showDelay: 0.3,  
         imgBanner: ImgRecipe1,
         img: [
             ImgRecipe1,
@@ -68,7 +69,7 @@ let projectsArray = [
     },
 ];
 
-export default function Projects ({ showTitle, showLine, showFilter }) {
+export default function Projects ({ showTitle, showLine, showProjects }) {
     const [filter, setFilter] = useState('all');
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -141,7 +142,7 @@ export default function Projects ({ showTitle, showLine, showFilter }) {
 
     const RenderItem = ({ item, k }) => {
         return(
-            <div style={{backgroundImage: `url(${item.imgBanner})`}} key={k} className={styles.projectsItem}>
+            <div style={{backgroundImage: `url(${item.imgBanner})`, animationDelay: `${item.showDelay}s`}} key={k} className={styles.projectsItem}>
                 <div className={styles.projectsItemHidden}>
                     <div className={styles.projectsItemHeader}>
                         <h2>{item.name}</h2>
@@ -180,7 +181,7 @@ export default function Projects ({ showTitle, showLine, showFilter }) {
             </section>
 
             <section className={styles.projects}>
-                <div id={showFilter ? 'showFilter' : 'hideFilter'} className={styles.filterArea}>
+                <div id={showProjects ? 'showFilter' : 'hideFilter'} className={styles.filterArea}>
                     <div style={{left: filter === 'all' && '0rem' || filter === 'react' && '10rem' || filter === 'react-native' && '20rem' || filter === 'node' && '30rem'}} className={styles.background} />
 
                     <div onClick={() => setFilter('all')} className={styles.filterItem}>
@@ -200,16 +201,16 @@ export default function Projects ({ showTitle, showLine, showFilter }) {
                     </div>
                 </div>
 
-                <div className={styles.projectsArea}>
+                <div id={showProjects ? 'showProjects' : 'hideProjects'} className={styles.projectsArea}>
                     {projectsArray.map((item, k) => (
                         filter === 'all' ?
-                            <RenderItem item={item} k={k} />
+                            <RenderItem item={item} key={k} />
                         :
                         filter === item.languageFilter ?
-                            <RenderItem item={item} k={k} />
+                            <RenderItem item={item} key={k} />
                         :
                         filter === item.languageFilter2 &&
-                            <RenderItem item={item} k={k} />
+                            <RenderItem item={item} key={k} />
                     ))}
                 </div>
 
