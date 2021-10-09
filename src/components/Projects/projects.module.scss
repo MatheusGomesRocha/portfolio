@@ -1,4 +1,5 @@
 .container {
+    background-color: var(--gray-50);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +13,7 @@
         justify-content: center;
 
         .line {
-            background-color: var(--white);
+            background-color: var(--black);
             width: 5rem;
             height: .2rem;
             border-radius: 1rem;
@@ -95,7 +96,7 @@
                 }
 
                 .projectsItemHidden {
-                    background-color: var(--black);
+                    background-color: var(--gray-50);
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -158,7 +159,7 @@
     }
 
     .modalContainer {
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: rgba(0, 0, 0, 0.5);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -169,7 +170,9 @@
         height: 100vh;
 
         .modal {
-            background-color: var(--black);
+            background-color: var(--white);
+            display: flex;
+            flex-direction: column;
             overflow: hidden;
             position: relative;
             opacity: 0;
@@ -178,14 +181,25 @@
             animation: show 500ms forwards;
             transition: opacity 500ms, width 500ms height 500ms;
 
-            img {
-                position: relative;
-                object-fit: cover;
-                object-position: center;
-                opacity: 0;
-                animation: showImg 3s forwards;
+            .imgContainer {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: 250ms;
                 width: 40rem;
-                height: 40vh;
+
+                &:hover {
+                    transform: scale(1.4);
+                    transition: 250ms;
+                }
+
+                img {
+                    position: relative;
+                    opacity: 0;
+                    animation: showImg 3s forwards;
+                    width: 40rem;
+                    height: 37vh;
+                }
             }
 
             .arrow {
@@ -214,8 +228,8 @@
                 transform: translateX(150%);
                 animation: showToCenter 500ms forwards;
                 animation-delay: 1s;
-                border-bottom: 1px solid var(--gray-500);
-                margin: 2rem;
+                border-bottom: 1px solid var(--gray-100);
+                margin: 1rem 2rem;
                 padding-bottom: 1rem;
 
                 h2 {
@@ -223,7 +237,7 @@
                 }
 
                 span {
-                    color: var(--gray-500);
+                    color: var(--gray-200);
                     font-size: 1.3rem;
                     line-height: 1rem;
                 }
@@ -234,9 +248,12 @@
                 transform: translateX(-150%);
                 animation: showToCenter 500ms forwards;
                 animation-delay: 1s;
+                display: flex;
+                flex: 1;
+                flex-direction: column;
 
                 p {
-                    color: var(--gray-100);
+                    color: var(--gray-800);
                     font-weight: 100;
                     line-height: 1.5rem;
                     margin: 0 2rem;
@@ -245,7 +262,7 @@
                 .footerRow {
                     display: flex;
                     align-items: center;
-                    margin: 1rem 2rem;
+                    margin: auto 2rem 2rem 2rem;
                     
                     .buttonModal {
                         background-color: var(--purple);
@@ -256,6 +273,7 @@
                         text-decoration: none;
                         border: 1px solid transparent;
                         transition: 500ms;
+                        margin-right: 1rem;
                         padding: 0 1rem;
                         height: 2.5rem;
         
@@ -288,7 +306,7 @@
                     }
 
                     .buttonModalGithub {
-                        background-color: var(--white);
+                        background-color: var(--black);
                         display: flex;
                         align-items: center;
                         justify-content: center;
@@ -296,32 +314,31 @@
                         text-decoration: none;
                         border: 1px solid transparent;
                         transition: 500ms;
-                        margin-left: 1rem;
                         padding: 0 1rem;
                         height: 2.5rem;
         
                         &:hover {
                             background-color: transparent;
-                            border: 1px solid var(--white);
+                            border: 1px solid var(--black);
         
                             .icon {
-                                color: var(--white);
+                                color: var(--black);
                                 transition: 250ms;
                             }
         
                             span {
-                                color: var(--white);
+                                color: var(--black);
                                 transition: 250ms;
                             }
                         }
         
                         .icon {
-                            color: var(--black);
+                            color: var(--white);
                             transition: 250ms;
                         }
         
                         span {
-                            color: var(--black);
+                            color: var(--white);
                             transition: 250ms;
                             font-size: 1.3rem;
                             margin-left: .5rem;
@@ -330,7 +347,7 @@
                 }
     
                 .closeButtonModal {
-                    background-color: rgba(255, 255, 255, 0.7);
+                    background-color: rgba(0, 0, 0, 0.5);
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -338,17 +355,17 @@
                     cursor: pointer;
                     transition: 250ms;
                     right: 2rem;
-                    bottom: 0;
+                    bottom: 2rem;
                     width: 2rem;
                     height: 2rem;
                     border-radius: 1rem;
     
                     &:hover {
-                        background-color: var(--white);
+                        background-color: var(--black);
                     }
                     
                     span {
-                        color: var(--black);
+                        color: var(--white);
                     }
                 }
             }

@@ -1,5 +1,4 @@
 .container {
-    background-color: var(--black-200);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,7 +22,7 @@
         }
 
         .line {
-            background-color: var(--white);
+            background-color: var(--black);
             animation: appearFromLeft 800ms forwards;
             transform: translateX(-350%);
             animation-delay: 500ms;
@@ -121,7 +120,7 @@
             margin-left: 3rem;
 
             .progressBar {
-                background-color: var(--black-600);
+                background-color: var(--gray-100);
                 display: flex;
                 align-items: center;
                 position: relative;
@@ -152,7 +151,7 @@
                 }
 
                 .progressValue {
-                    background-color: var(--black-600);
+                    background-color: var(--gray-100);
                     display: flex;
                     align-items: center;
                     justify-content: center;

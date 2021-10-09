@@ -11,13 +11,29 @@ import ImgPizzaria3 from '../../assets/pizzaria-portfolio/3.png';
 import ImgPizzaria4 from '../../assets/pizzaria-portfolio/4.png';
 import ImgPizzaria5 from '../../assets/pizzaria-portfolio/5.png';
 
+import ImgRecipe1 from '../../assets/recipe-portfolio/1.jpeg';
+import ImgRecipe2 from '../../assets/recipe-portfolio/2.jpeg';
+import ImgRecipe3 from '../../assets/recipe-portfolio/3.jpeg';
+import ImgRecipe4 from '../../assets/recipe-portfolio/4.jpeg';
+import ImgRecipe5 from '../../assets/recipe-portfolio/5.jpeg';
+import ImgRecipe6 from '../../assets/recipe-portfolio/6.jpeg';
+import ImgRecipe7 from '../../assets/recipe-portfolio/7.jpeg';
+import ImgRecipe8 from '../../assets/recipe-portfolio/8.jpeg';
+
 import styles from './projects.module.scss';
 import './animation.css';
 
 let projectsArray = [
     {
         id: 1, 
-        img: ImgPizzaria1, 
+        imgBanner: ImgPizzaria1,
+        img: [
+            ImgPizzaria1,
+            ImgPizzaria2,
+            ImgPizzaria3,
+            ImgPizzaria4,
+            ImgPizzaria5,
+        ], 
         name: 'Pizza Home', 
         description: 'Um lindo website de apresentação para uma Pizzaria', 
         whatCanDo: 'Pizza Home é um website simples, com uma API feita em Node para testar como seria a visão do usuário ao fazer os pedidos', 
@@ -30,8 +46,21 @@ let projectsArray = [
     },
     {
         id: 2, 
-        img: ImgPizzaria1, 
+        imgBanner: ImgRecipe1,
+        img: [
+            ImgRecipe1,
+            ImgRecipe2,
+            ImgRecipe3,
+            ImgRecipe4,
+            ImgRecipe5,
+            ImgRecipe6,
+            ImgRecipe7,
+            ImgRecipe8,
+        ], 
         name: 'Recipe', 
+        description: 'Um App para experimentar coisas novas na cozinha', 
+        whatCanDo: 'Recipe é um App que permite o usuário postar suas receitas, e ver receitas de outros usuários. Bom para quem está começando ou quer aprender a fazer algo novo. ', 
+        linkGithub: 'https://github.com/MatheusGomesRocha/pizzaria_react',
         languages: 'React-Native / Node', 
         languageFilter: 'react-native', 
         languageFilter2: 'node', 
@@ -43,7 +72,7 @@ export default function Projects ({ showTitle, showLine, showFilter }) {
     const [filter, setFilter] = useState('all');
     const [modalVisible, setModalVisible] = useState(false);
 
-    const [img, setImg] = useState('');
+    const [img, setImg] = useState([]);
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [whatCanDo, setWhatCanDo] = useState('');
@@ -71,25 +100,11 @@ export default function Projects ({ showTitle, showLine, showFilter }) {
             <div className={styles.modalContainer}>
                 <div className={styles.modal}>
                     <Carousel renderArrowNext={arrowNext} renderArrowPrev={arrowPrev} useKeyboardArrows infiniteLoop showStatus={false} showThumbs={false} showIndicators={false} >
-                        <div>
-                            <img src={ImgPizzaria1} />
-                        </div>
-
-                        <div>
-                            <img src={ImgPizzaria2} />
-                        </div>
-
-                        <div>
-                            <img src={ImgPizzaria3} />
-                        </div>
-
-                        <div>
-                            <img src={ImgPizzaria4} />
-                        </div>
-
-                        <div>
-                            <img src={ImgPizzaria5} />
-                        </div>
+                        {img.map((item, k) => (
+                            <div className={styles.imgContainer} key={k}>
+                                <img style={{objectFit: name === 'Pizza Home' ? 'cover' : 'contain', objectPosition: name === 'Pizza Home' ? 'center' : undefined}} src={item} />
+                            </div>
+                        ))}
                     </Carousel>
 
                     <div className={styles.headerModal}>
@@ -101,10 +116,13 @@ export default function Projects ({ showTitle, showLine, showFilter }) {
                         <p>{whatCanDo}</p>
 
                         <div className={styles.footerRow}>
-                            <a href={site} target="_blank" className={styles.buttonModal}>
-                                <BiLinkExternal className={styles.icon} size={18} />
-                                <span>Ver site</span>
-                            </a>
+                            {site ? 
+                                <a href={site} target="_blank" className={styles.buttonModal}>
+                                    <BiLinkExternal className={styles.icon} size={18} />
+                                    <span>Ver site</span>
+                                </a>
+                                : undefined
+                            }
                             
                             <a href={github} target="_blank" className={styles.buttonModalGithub}>
                                 <AiFillGithub className={styles.icon} size={18} />
@@ -123,7 +141,7 @@ export default function Projects ({ showTitle, showLine, showFilter }) {
 
     const RenderItem = ({ item, k }) => {
         return(
-            <div style={{backgroundImage: `url(${item.img})`}} key={k} className={styles.projectsItem}>
+            <div style={{backgroundImage: `url(${item.imgBanner})`}} key={k} className={styles.projectsItem}>
                 <div className={styles.projectsItemHidden}>
                     <div className={styles.projectsItemHeader}>
                         <h2>{item.name}</h2>
@@ -166,19 +184,19 @@ export default function Projects ({ showTitle, showLine, showFilter }) {
                     <div style={{left: filter === 'all' && '0rem' || filter === 'react' && '10rem' || filter === 'react-native' && '20rem' || filter === 'node' && '30rem'}} className={styles.background} />
 
                     <div onClick={() => setFilter('all')} className={styles.filterItem}>
-                        <span style={{color: filter === 'all' ? '#000' : '#fff'}}>All</span>
+                        <span style={{color: filter === 'all' ? '#fff' : '#000'}}>All</span>
                     </div>
 
                     <div onClick={() => setFilter('react')} className={styles.filterItem}>
-                        <span style={{color: filter === 'react' ? '#000' : '#fff'}}>React</span>
+                        <span style={{color: filter === 'react' ? '#fff' : '#000'}}>React</span>
                     </div>
 
                     <div onClick={() => setFilter('react-native')} className={styles.filterItem}>
-                        <span style={{color: filter === 'react-native' ? '#000' : '#fff'}}>React Native</span>
+                        <span style={{color: filter === 'react-native' ? '#fff' : '#000'}}>React Native</span>
                     </div>
 
                     <div onClick={() => setFilter('node')} className={styles.filterItem}>
-                        <span style={{color: filter === 'node' ? '#000' : '#fff'}}>Node</span>
+                        <span style={{color: filter === 'node' ? '#fff' : '#000'}}>Node</span>
                     </div>
                 </div>
 
