@@ -82,3 +82,11 @@
         }
     }
 }
+
+@media (max-width: 800px) {
+    .container {
+        form { 
+            display: none;
+        }
+    }
+}

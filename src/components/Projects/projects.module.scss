@@ -379,3 +379,17 @@
         transform: translateX(0);
     }
 }
+
+@media (max-width: 800px) {
+    .container {
+        .projects {
+            .filterArea {
+                display: none;
+            }
+            
+            .projectsArea {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}
