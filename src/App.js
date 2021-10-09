@@ -18,6 +18,7 @@ function App() {
 
     const [showTitleContact, setShowTitleContact] = useState(false);
     const [showLineContact, setShowLineContact] = useState(false);
+    const [showForm, setShowForm] = useState(false);
 
     useEffect(() => {
         window.onscroll = () => {
@@ -46,6 +47,9 @@ function App() {
             if(window.pageYOffset >= 1900) {
               setShowLineContact(true);
             }
+            if(window.pageYOffset >= 2050) {
+              setShowForm(true);
+            }
         }
     }, []);
 
@@ -57,7 +61,7 @@ function App() {
 
       <Projects showTitleProject={showTitleProject} showLineProject={showLineProject} showProjects={showProjectsArea} />
 
-      <Contact showTitleContact={showTitleContact} showLineContact={showLineContact} />
+      <Contact showTitleContact={showTitleContact} showLineContact={showLineContact} showFormContact={showForm} />
     </div>
   );
 }

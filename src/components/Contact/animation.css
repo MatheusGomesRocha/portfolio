@@ -1,0 +1,38 @@
+#showQuestion {
+    opacity: 0;
+    transform: translateX(150%);
+    animation: showToCenter 800ms forwards;
+    animation-delay: 500ms;
+}
+
+#hideQuestion {
+    opacity: 0;
+}
+
+#showForm {
+    opacity: 1;
+    transform: scale(0);
+    animation: showAndGrow 1s forwards;
+}
+
+#hideForm {
+    opacity: 0;
+}
+
+@keyframes showToCenter {
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes showAndGrow {
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
