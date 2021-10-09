@@ -12,7 +12,7 @@ export default function Introduction () {
     }, []);
 
     return(
-        <div className={styles.container}>
+        <div id="introduction" className={styles.container}>
             <video ref={video} src={BackgroundVideo} muted loop/>
 
             <div className={styles.content}>

@@ -4,5 +4,52 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
     padding: 3rem 0;
+
+    .toTopButton {
+        background-color: var(--purple);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: absolute;
+        top: -1.5rem;
+        transition: 250ms;
+        width: 3rem;
+        height: 3rem;
+        border-radius: .5rem;
+
+        &:hover {
+            filter: brightness(0.8);
+        }
+    }
+
+    .socials {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 11rem;
+
+        .socialsItem {
+            background-color: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 250ms;
+            width: 3rem;
+            height: 3rem;
+            border-radius: .5rem;
+
+            &:hover {
+                filter: brightness(0.7);
+            }
+        }
+    }
+
+    .name {
+        font-size: 1.3rem;
+        margin-top: 1rem;
+    }
 }
