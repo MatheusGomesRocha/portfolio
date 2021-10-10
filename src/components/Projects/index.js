@@ -104,7 +104,7 @@ export default function Projects ({ showTitleProject, showLineProject, showProje
                     <Carousel renderArrowNext={arrowNext} renderArrowPrev={arrowPrev} useKeyboardArrows infiniteLoop showStatus={false} showThumbs={false} showIndicators={false} >
                         {img.map((item, k) => (
                             <div className={styles.imgContainer} key={k}>
-                                <img style={{objectFit: name === 'Pizza Home' ? 'cover' : 'contain', objectPosition: name === 'Pizza Home' ? 'center' : undefined}} src={item} />
+                                <img alt="" style={{objectFit: name === 'Pizza Home' ? 'cover' : 'contain', objectPosition: name === 'Pizza Home' ? 'center' : undefined}} src={item} />
                             </div>
                         ))}
                     </Carousel>
@@ -119,14 +119,14 @@ export default function Projects ({ showTitleProject, showLineProject, showProje
 
                         <div className={styles.footerRow}>
                             {site ? 
-                                <a href={site} target="_blank" className={styles.buttonModal}>
+                                <a href={site} rel="noopener noreferrer" target="_blank" className={styles.buttonModal}>
                                     <BiLinkExternal className={styles.icon} size={18} />
                                     <span>Ver site</span>
                                 </a>
                                 : undefined
                             }
                             
-                            <a href={github} target="_blank" className={styles.buttonModalGithub}>
+                            <a href={github} rel="noopener noreferrer" target="_blank" className={styles.buttonModalGithub}>
                                 <AiFillGithub className={styles.icon} size={18} />
                                 <span>Ver github</span>
                             </a>
@@ -180,7 +180,7 @@ export default function Projects ({ showTitleProject, showLineProject, showProje
 
             <section id={showProjects ? 'showProjectsItem' : 'hideProjectsItem'} className={styles.projects}>
                 <div id={showProjects ? 'showFilter' : 'hideFilter'} className={styles.filterArea}>
-                    <div style={{left: filter === 'all' && '0rem' || filter === 'react' && '10rem' || filter === 'react-native' && '20rem' || filter === 'node' && '30rem'}} className={styles.background} />
+                    <div style={{left: filter === 'all' ? '0rem' : filter === 'react' ? '10rem' : filter === 'react-native' ? '20rem' :  filter === 'node' ? '30rem' : undefined}} className={styles.background} />
 
                     <div onClick={() => setFilter('all')} className={styles.filterItem}>
                         <span style={{color: filter === 'all' ? '#fff' : '#000'}}>All</span>

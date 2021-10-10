@@ -15,15 +15,15 @@ export default function Footer () {
             </a>
 
             <div className={styles.socials}>
-                <a target="_blank" href="https://www.linkedin.com/in/matheus-gomes-2a61a8190/" className={styles.socialsItem}>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/matheus-gomes-2a61a8190/" className={styles.socialsItem}>
                     <RiLinkedinFill color="#fff" size={20} />
                 </a>
 
-                <a target="_blank" href="https://www.instagram.com/mattheeeeeus/" className={styles.socialsItem}>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/mattheeeeeus/" className={styles.socialsItem}>
                     <BsInstagram color="#fff" size={20} />
                 </a>
 
-                <a target="_blank" href="https://github.com/MatheusGomesRocha" className={styles.socialsItem}>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/MatheusGomesRocha" className={styles.socialsItem}>
                     <AiFillGithub color="#fff" size={20} />
                 </a>
             </div>
