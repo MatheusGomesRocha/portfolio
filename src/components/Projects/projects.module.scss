@@ -384,7 +384,11 @@
     .container {
         .projects {
             .filterArea {
-                display: none;
+                grid-template-columns: repeat(2, 1fr);
+
+                .item {
+                    width: 8rem;
+                }
             }
             
             .projectsArea {
@@ -427,6 +431,19 @@
             opacity: 1;
             width: 90%;
             height: auto;
+        }
+    }
+}
+
+@media (min-width: 801px) and (max-width: 1400px) {
+    .container {
+        .projects {
+            .filterArea {
+            }
+            
+            .projectsArea {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     }
 }

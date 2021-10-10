@@ -180,21 +180,19 @@ export default function Projects ({ showTitleProject, showLineProject, showProje
 
             <section id={showProjects ? 'showProjectsItem' : 'hideProjectsItem'} className={styles.projects}>
                 <div id={showProjects ? 'showFilter' : 'hideFilter'} className={styles.filterArea}>
-                    <div style={{left: filter === 'all' ? '0rem' : filter === 'react' ? '10rem' : filter === 'react-native' ? '20rem' :  filter === 'node' ? '30rem' : undefined}} className={styles.background} />
-
-                    <div onClick={() => setFilter('all')} className={styles.filterItem}>
+                    <div style={{backgroundColor: filter === 'all' ? '#9f75ff' : undefined}} onClick={() => setFilter('all')} className={styles.filterItem}>
                         <span style={{color: filter === 'all' ? '#fff' : '#000'}}>All</span>
                     </div>
 
-                    <div onClick={() => setFilter('react')} className={styles.filterItem}>
+                    <div style={{backgroundColor: filter === 'react' ? '#9f75ff' : undefined}} onClick={() => setFilter('react')} className={styles.filterItem}>
                         <span style={{color: filter === 'react' ? '#fff' : '#000'}}>React</span>
                     </div>
 
-                    <div onClick={() => setFilter('react-native')} className={styles.filterItem}>
+                    <div style={{backgroundColor: filter === 'react-native' ? '#9f75ff' : undefined}} onClick={() => setFilter('react-native')} className={styles.filterItem}>
                         <span style={{color: filter === 'react-native' ? '#fff' : '#000'}}>React Native</span>
                     </div>
 
-                    <div onClick={() => setFilter('node')} className={styles.filterItem}>
+                    <div style={{backgroundColor: filter === 'node' ? '#9f75ff' : undefined}} onClick={() => setFilter('node')} className={styles.filterItem}>
                         <span style={{color: filter === 'node' ? '#fff' : '#000'}}>Node</span>
                     </div>
                 </div>
