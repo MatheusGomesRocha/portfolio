@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './globals.scss';
 
 import Introduction from './components/Introduction';
+import Header from './components/Header';
 import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
@@ -21,35 +22,53 @@ function App() {
     const [showLineContact, setShowLineContact] = useState(false);
     const [showForm, setShowForm] = useState(false);
 
+    const [fixedHeader, setFixedHeader] = useState(false);
+    const [currentComponent, setCurrentComponent] = useState('home');
+
     useEffect(() => {
         window.onscroll = () => {
-            console.log(window.pageYOffset);
-            if(window.pageYOffset >= 220) {
+            const windowHeight = window.pageYOffset;
+
+            if(windowHeight >= 220) {
               setShowTitle(true);
             } 
-            if (window.pageYOffset >= 300) {
+            if (windowHeight >= 300) {
               setShowLine(true);
             } 
-            if (window.pageYOffset >= 600) {
+            if (windowHeight >= 600) {
               setShowContent(true);
+            }
+            if(windowHeight < 850 ) {
+              setFixedHeader(false);
+              setCurrentComponent('home');
+            }
+            if(windowHeight >= 850) {
+              setFixedHeader(true);
+              setCurrentComponent('about')
             } 
-            if (window.pageYOffset >= 1100) {
+            if (windowHeight >= 1100) {
               setShowTitleProject(true)
             } 
-            if (window.pageYOffset >= 1300) {
+            if (windowHeight >= 1300) {
               setShowLineProject(true);
             } 
-            if(window.pageYOffset >= 1600) {
+            if(windowHeight >= 1600) {
               setShowProjectsArea(true);
             } 
-            if(window.pageYOffset >= 1850) {
+            if(windowHeight >= 1730) {
+              setCurrentComponent('projects')
+            }
+            if(windowHeight >= 1850) {
               setShowTitleContact(true);
             } 
-            if(window.pageYOffset >= 1900) {
+            if(windowHeight >= 1900) {
               setShowLineContact(true);
             }
-            if(window.pageYOffset >= 2050) {
+            if(windowHeight >= 2050) {
               setShowForm(true);
+            }
+            if(windowHeight >= 2400) {
+              setCurrentComponent('contact');
             }
         }
     }, []);
@@ -57,6 +76,8 @@ function App() {
   return (
     <div>
       <Introduction />
+
+      <Header fixedHeader={fixedHeader} currentComponent={currentComponent} />
 
       <About showTitle={showTitle} showLine={showLine} showContent={showContent} />
 

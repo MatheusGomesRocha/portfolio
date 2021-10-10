@@ -169,7 +169,7 @@ export default function Projects ({ showTitleProject, showLineProject, showProje
     }
 
     return(
-        <div className={styles.container}>
+        <div id="projects" className={styles.container}>
             {modalVisible ?
                 <Modal />
                 :
