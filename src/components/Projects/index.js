@@ -20,6 +20,15 @@ import ImgRecipe6 from '../../assets/recipe-portfolio/6.jpeg';
 import ImgRecipe7 from '../../assets/recipe-portfolio/7.jpeg';
 import ImgRecipe8 from '../../assets/recipe-portfolio/8.jpeg';
 
+import ImgPodcastr1 from '../../assets/podcastr-porfolio/1.png';
+import ImgPodcastr2 from '../../assets/podcastr-porfolio/2.png';
+import ImgPodcastr3 from '../../assets/podcastr-porfolio/3.png';
+
+import ImgECommerce1 from '../../assets/ecommerce-portfolio/1.png';
+import ImgECommerce2 from '../../assets/ecommerce-portfolio/2.png';
+import ImgECommerce3 from '../../assets/ecommerce-portfolio/3.png';
+import ImgECommerce4 from '../../assets/ecommerce-portfolio/4.png';
+
 import styles from './projects.module.scss';
 import './animation.css';
 import HeaderAnimated from '../HeaderAnimated';
@@ -67,6 +76,40 @@ let projectsArray = [
         languageFilter: 'react-native', 
         languageFilter2: 'node', 
         node: true
+    },
+    {
+        id: 3,
+        showDelay: 0.6,  
+        imgBanner: ImgPodcastr2,
+        img: [
+            ImgPodcastr1,
+            ImgPodcastr2,
+            ImgPodcastr3,
+        ], 
+        name: 'Podcastr', 
+        description: 'Um App para que os usuários escutem um Podcast', 
+        whatCanDo: 'Podcastr é um site para que os usuário escutem os mais recentes Podcasts da Rocketseat', 
+        linkGithub: 'https://github.com/MatheusGomesRocha/podcastr',
+        languages: 'Next / Typescript', 
+        languageFilter: 'next', 
+        languageFilter2: 'typescript', 
+    },
+    {
+        id: 4,
+        showDelay: 0.9,  
+        imgBanner: ImgECommerce1,
+        img: [
+            ImgECommerce1,
+            ImgECommerce2,
+            ImgECommerce3,
+            ImgECommerce4,
+        ], 
+        name: 'E-Commerce', 
+        description: 'Um site para uma loja que venda roupas', 
+        whatCanDo: 'Mostra os produtos, detalhes dos produtos + uma tela com o Cart e informações de preço', 
+        linkGithub: 'https://github.com/MatheusGomesRocha/e-commerce',
+        languages: 'React', 
+        languageFilter: 'react', 
     },
 ];
 
@@ -194,6 +237,14 @@ export default function Projects ({ showTitleProject, showLineProject, showProje
 
                     <div style={{backgroundColor: filter === 'node' ? '#9f75ff' : undefined}} onClick={() => setFilter('node')} className={styles.filterItem}>
                         <span style={{color: filter === 'node' ? '#fff' : '#000'}}>Node</span>
+                    </div>
+
+                    <div style={{backgroundColor: filter === 'next' ? '#9f75ff' : undefined}} onClick={() => setFilter('next')} className={styles.filterItem}>
+                        <span style={{color: filter === 'next' ? '#fff' : '#000'}}>Next</span>
+                    </div>
+
+                    <div style={{backgroundColor: filter === 'typescript' ? '#9f75ff' : undefined}} onClick={() => setFilter('typescript')} className={styles.filterItem}>
+                        <span style={{color: filter === 'typescript' ? '#fff' : '#000'}}>Typescript</span>
                     </div>
                 </div>
 
